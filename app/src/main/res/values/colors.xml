@@ -13,4 +13,8 @@
     <color name="colorPrimaryDark">#0069c0</color>
     <color name="colorPrimaryLight">#6ec6ff</color>
 
+    <color name="colorDisconnected">#f44336</color>
+    <color name="colorConnected">#4caf50</color>
+    <color name="colorDisconnecting">#ff9800</color>
+
 </resources>

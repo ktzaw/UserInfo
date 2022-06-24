@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_16"
+    android:layout_marginLeft="@dimen/margin_16"
+    android:layout_marginTop="@dimen/margin_16"
+    android:layout_marginEnd="@dimen/margin_16"
+    android:layout_marginRight="@dimen/margin_16"
+    app:cardCornerRadius="@dimen/card_corner_radius_6"
+    app:cardElevation="@dimen/card_elevation_4"
+    app:cardMaxElevation="@dimen/card_elevation_6"
+    app:cardUseCompatPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginLeft="@dimen/margin_16"
+            android:transitionName="name"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginRight="@dimen/margin_16"
+            android:drawablePadding="@dimen/margin_8"
+            android:gravity="center_vertical"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            app:drawableStartCompat="@drawable/ic_baseline_person_24" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginLeft="@dimen/margin_16"
+            android:transitionName="email"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginRight="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:drawablePadding="@dimen/margin_8"
+            android:gravity="center_vertical"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            app:drawableStartCompat="@drawable/ic_baseline_email_24" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

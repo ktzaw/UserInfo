@@ -1,7 +1,9 @@
- plugins {
+plugins {
     id(Libraries.Plugins.androidApplication)
     id(Libraries.Plugins.kotlinAndroid)
     id(Libraries.Plugins.kotlinKapt)
+    id(Libraries.Plugins.daggerHilt)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -35,7 +37,8 @@ android {
     buildTypes {
 
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -52,7 +55,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = "1.8"
     }
     packagingOptions {
         resources {
@@ -64,10 +67,16 @@ android {
         create("staging") {
             dimension = "environment"
             applicationIdSuffix = ".staging"
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
         create("production") {
             dimension = "environment"
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -79,9 +88,34 @@ dependencies {
     implementation(Libraries.Core.lifecycleRuntimeKtx)
     implementation(Libraries.Core.lifeCycleViewModelKtx)
 
+    // Kotlin
+    implementation(Libraries.Core.coroutinesCore)
+    implementation(Libraries.Core.coroutinesAndroid)
+
     // UI
     implementation(Libraries.UI.constraintLayout)
     implementation(Libraries.UI.material)
+    implementation(Libraries.UI.swipeRefreshLayout)
+    implementation(Libraries.UI.activity)
+    implementation(Libraries.UI.activityKtx)
+
+    // Hilt
+    implementation(Libraries.Hilt.hiltAndroid)
+    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    kapt(Libraries.Hilt.androidxHiltCompiler)
+    kapt(Libraries.Hilt.daggerHiltCompiler)
+
+    // Room
+    implementation(Libraries.Room.roomKtx)
+    implementation(Libraries.Room.roomRuntime)
+    kapt(Libraries.Room.roomCompiler)
+
+    // Network
+    implementation(Libraries.Network.retrofit2)
+    implementation(Libraries.Network.okHttpLoggingInterceptor)
+    implementation(Libraries.Network.gsonConverter)
 
     // Test
     testImplementation(Libraries.Test.junit)

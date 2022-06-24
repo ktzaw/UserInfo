@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">UserInfo</string>
+
+    <string name="name">James Bond</string>
+    <string name="email">jamesbond007@gmail.com</string>
+    <string name="address">No.10, Oxford Road, London, UK</string>
+    <string name="phone">0912345358</string>
+    <string name="website">www.sis.gov.uk</string>
+    <string name="messageConnected">Connected</string>
+    <string name="messageDisconnected">Disconnected</string>
+    <string name="messageDisconnecting">Disnconnecting</string>
+
 </resources>

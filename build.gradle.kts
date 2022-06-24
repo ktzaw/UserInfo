@@ -17,9 +17,13 @@ buildscript {
         classpath(Libraries.Gradle.advancedBuildVersionGradle)
         classpath(Libraries.Gradle.navigationSafeArgsGradle)
         classpath(Libraries.Gradle.hiltGradle)
-        classpath("com.android.tools.build:gradle:7.0.0")
+        classpath(Libraries.Core.kotlinNoArgs)
+        classpath("com.android.tools.build:gradle:7.2.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
     }
 }
+
+apply(plugin = "kotlin-noarg")
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
